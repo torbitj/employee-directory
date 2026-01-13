@@ -11,6 +11,12 @@ app.get('/employees', (req, res) => {
   res.send(employees)
 })
 
+app.get('/employees/random', (req, res) => {
+  const randId = Math.floor(Math.random() * 10) + 1;
+  const randEmployee = employees.find((employee) => employee.id === randId)
+  res.send(randEmployee);
+})
+
 app.get('/employees/:id', (req, res) => {
   const { id } = req.params;
   const idNum = Number(id);
